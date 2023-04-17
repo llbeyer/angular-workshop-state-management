@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {Address} from "../../models/address.model";
+import {Component, Input} from '@angular/core';
 import {Company} from "../../models/company.models";
 
 @Component({
@@ -8,5 +7,6 @@ import {Company} from "../../models/company.models";
   styleUrls: ['./user-company.component.scss']
 })
 export class UserCompanyComponent {
-  company: Company | undefined;
+  @Input()
+  company: Company | null = null;
 }

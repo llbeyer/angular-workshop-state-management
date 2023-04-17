@@ -4,7 +4,11 @@
 <p *ngIf="totalPrice !== undefined"><b>Gesamtpreis: {{ totalPrice }}</b></p>
 
 
-<div class="component-container column-two-thirds">
-  <app-shop-cart-item></app-shop-cart-item>
-  <app-shop-cart-actions></app-shop-cart-actions>
+<div class="component-container column-two-thirds" *ngFor="let item of items">
+  <app-shop-cart-item
+    [item]="item">
+  </app-shop-cart-item>
+  <app-shop-cart-actions
+    (removed)="removeItem(item)">
+  </app-shop-cart-actions>
 </div>

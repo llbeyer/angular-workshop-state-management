@@ -1,8 +1,12 @@
 <h1>UserComponent</h1>
 
 <div class="component-container">
-  <app-user-details></app-user-details>
+  <app-user-details
+    [user]="user$ | async">
+  </app-user-details>
 </div>
 <div class="component-container">
-  <app-user-comments></app-user-comments>
+  <app-user-comments
+    [comments]="(userComments$ | async) ?? []">
+  </app-user-comments>
 </div>

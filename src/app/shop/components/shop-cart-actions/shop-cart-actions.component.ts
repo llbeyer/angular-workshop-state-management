@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-shop-cart-actions',
@@ -7,9 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ShopCartActionsComponent {
 
-  itemIndex: number | undefined;
+  @Output()
+  removed: EventEmitter<void> = new EventEmitter<void>();
 
   removeItem() {
-    console.log('removed item from shopping cart: ', this.itemIndex);
+    console.log('removed item from shopping cart');
+
+    this.removed.emit();
   }
 }

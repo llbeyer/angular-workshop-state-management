@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Address} from "../../models/address.model";
 
 @Component({
@@ -8,6 +8,7 @@ import {Address} from "../../models/address.model";
 })
 export class UserAddressComponent {
 
-  address: Address | undefined;
+  @Input()
+  address: Address | null = null;
 
 }

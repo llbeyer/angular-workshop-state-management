@@ -1,7 +1,7 @@
 <h2>UserCommentsComponent</h2>
 
 <ol>
-  <li *ngFor="let comment of comments; let index = index">
+  <li *ngFor="let comment of comments | slice: 0:10; let index = index">
     <div class="column-three">
         <div>
           <span><b>Kommentar-Titel</b></span>

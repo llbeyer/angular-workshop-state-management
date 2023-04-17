@@ -1,7 +1,18 @@
 <h2>UserDetailsComponent</h2>
 
-<div class="column-three">
-  <app-user-address class="component-container"></app-user-address>
-  <app-user-company class="component-container"></app-user-company>
-  <app-user-contact class="component-container"></app-user-contact>
-  <div>
+<div class="column-three" *ngIf="user">
+  <app-user-address
+    [address]="user.address"
+    class="component-container">
+  </app-user-address>
+  <app-user-company
+    [company]="user.company"
+    class="component-container">
+  </app-user-company>
+  <app-user-contact
+    [email]="user.email"
+    [phone]="user.phone"
+    [website]="user.website"
+    class="component-container">
+  </app-user-contact>
+<div>

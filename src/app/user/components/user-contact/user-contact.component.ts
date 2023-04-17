@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {User} from "../../models/user.model";
 
 @Component({
@@ -8,7 +8,10 @@ import {User} from "../../models/user.model";
 })
 export class UserContactComponent {
 
-  email: User['email'] | undefined;
-  phone: User['phone'] | undefined;
-  website : User['website'] | undefined;
+  @Input()
+  email: User['email'] | null = null;
+  @Input()
+  phone: User['phone'] | null = null;
+  @Input()
+  website : User['website'] | null = null;
 }

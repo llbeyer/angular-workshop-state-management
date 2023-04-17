@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Comment} from "../../models/comment.model";
 
 @Component({
@@ -7,5 +7,6 @@ import {Comment} from "../../models/comment.model";
   styleUrls: ['./user-comments.component.scss']
 })
 export class UserCommentsComponent {
+  @Input()
   comments: Comment[] = [];
 }
