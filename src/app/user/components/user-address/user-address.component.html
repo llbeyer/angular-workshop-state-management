@@ -1,0 +1,9 @@
+<h3>UserAddressComponent</h3>
+
+<dl *ngIf="address">
+  <dt><b>Straße, Hausnummer</b></dt>
+  <dd>{{ address.street }}, {{ address.suite }}</dd>
+  <br>
+  <dt><b>Ort, Postleitzahl</b></dt>
+  <dd>{{ address.city }}, {{ address.zipcode }}</dd>
+</dl>

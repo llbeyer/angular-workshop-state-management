@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+.component-container {
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  border: 1px solid #2f2f2f;
+  margin-block: 1rem;
+}
+
+.flex {
+  display: flex;
+  place-items: center;
+  gap: 1rem;
+}
+
+.column-two-thirds {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.column-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}

@@ -1,0 +1,23 @@
+<h1>ShopOverviewComponent</h1>
+
+<ng-container *ngFor="let item of products">
+  <div class="component-container column-two-thirds">
+    <div class="column-two-thirds">
+      <div class="flex">
+        <img [src]="item.image" height="100">
+        <div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+      <span>Preis: {{ item.price }} €</span>
+    </div>
+    <button (click)="addItemToCart(item)">
+      Zum Einkaufswagen hinzufügen
+    </button>
+  </div>
+</ng-container>
+
+<p *ngIf="products.length === 0">
+  Keine Produkte vorhanden :(
+</p>
