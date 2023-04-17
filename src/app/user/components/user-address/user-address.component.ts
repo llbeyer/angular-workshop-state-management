@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Address} from "../../models/address.model";
+import {UserService} from "../../services/user.service";
+import {map, Observable} from "rxjs";
 
 @Component({
   selector: 'app-user-address',
@@ -8,6 +10,18 @@ import {Address} from "../../models/address.model";
 })
 export class UserAddressComponent {
 
-  address: Address | undefined;
+  address$: Observable<Address>;
 
+  constructor(
+    private readonly userService: UserService,
+  ) {
+    this.address$ = this.getAddress();
+  }
+
+  private getAddress(): Observable<Address> {
+    return this.userService.user$
+      .pipe(
+        map(user => user.address)
+      );
+  }
 }

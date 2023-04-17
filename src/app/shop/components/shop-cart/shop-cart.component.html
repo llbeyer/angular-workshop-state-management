@@ -1,10 +1,14 @@
 <h1>ShopCartComponent</h1>
 <p>Hier liegen alle Produkte, welche in dem Einkaufswagen gepackt wurden!</p>
-<p *ngIf="count !== undefined"><b>Anzahl Produkte: {{ count }}</b></p>
-<p *ngIf="totalPrice !== undefined"><b>Gesamtpreis: {{ totalPrice }}</b></p>
+<p *ngIf="(count$ | async) as count"><b>Anzahl Produkte: {{ count }}</b></p>
+<p *ngIf="(totalPrice$ | async) as totalPrice"><b>Gesamtpreis: {{ totalPrice }}</b></p>
 
 
-<div class="component-container column-two-thirds">
-  <app-shop-cart-item></app-shop-cart-item>
-  <app-shop-cart-actions></app-shop-cart-actions>
+<div class="component-container column-two-thirds" *ngFor="let item of (items$ | async)">
+  <app-shop-cart-item
+    [item]="item">
+  </app-shop-cart-item>
+  <app-shop-cart-actions
+    [itemId]="item.id">
+  </app-shop-cart-actions>
 </div>

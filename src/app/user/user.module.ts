@@ -8,6 +8,7 @@ import { UserAddressComponent } from './components/user-address/user-address.com
 import { UserCompanyComponent } from './components/user-company/user-company.component';
 import { UserContactComponent } from './components/user-contact/user-contact.component';
 import { UserCommentsComponent } from './components/user-comments/user-comments.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UserCommentsComponent } from './components/user-comments/user-comments.
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    HttpClientModule,
   ]
 })
 export class UserModule { }

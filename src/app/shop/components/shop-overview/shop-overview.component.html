@@ -1,6 +1,6 @@
 <h1>ShopOverviewComponent</h1>
 
-<ng-container *ngFor="let item of products">
+<ng-container *ngFor="let item of (products$ | async)">
   <div class="component-container column-two-thirds">
     <div class="column-two-thirds">
       <div class="flex">
@@ -18,6 +18,6 @@
   </div>
 </ng-container>
 
-<p *ngIf="products.length === 0">
+<p *ngIf="(products$ | async)?.length === 0">
   Keine Produkte vorhanden :(
 </p>

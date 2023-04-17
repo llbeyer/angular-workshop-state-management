@@ -1,17 +1,17 @@
 <h2>UserCommentsComponent</h2>
 
 <ol>
-  <li *ngFor="let comment of comments; let index = index">
+  <li *ngFor="let comment of (comments$ | async) | slice:0:20; let index = index">
     <div class="column-three">
-        <div>
-          <span><b>Kommentar-Titel</b></span>
-          <p>{{ comment.name }}</p>
-        </div>
+      <div>
+        <span><b>Kommentar-Titel</b></span>
+        <p>{{ comment.name }}</p>
+      </div>
 
-        <div>
-          <span><b>Kommentar</b></span>
-          <p>{{ comment.body }}</p>
-        </div>
+      <div>
+        <span><b>Kommentar</b></span>
+        <p>{{ comment.body }}</p>
+      </div>
 
       <div>
         <span><b>Adressat</b></span>

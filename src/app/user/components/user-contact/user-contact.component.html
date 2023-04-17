@@ -2,8 +2,8 @@
 
 <dl>
   <dt><b>Email & Telefon</b></dt>
-  <dd>Email: {{ email }},<br> Telefon: {{ phone }}</dd>
+  <dd>Email: {{ email$ | async }},<br> Telefon: {{ phone$ | async }}</dd>
   <br>
   <dt><b>Website</b></dt>
-  <dd><a href="https://www.google.com" target="_blank">{{ website }}</a></dd>
+  <dd><a href="https://www.google.com" target="_blank">{{ website$ | async }}</a></dd>
 </dl>
