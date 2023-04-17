@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {ShopService} from "../../services/shop.service";
 
 @Component({
   selector: 'app-shop-cart-actions',
@@ -7,9 +8,18 @@ import { Component } from '@angular/core';
 })
 export class ShopCartActionsComponent {
 
-  itemIndex: number | undefined;
+  @Input()
+  itemId: number | undefined;
+
+  constructor(
+    private readonly shopService: ShopService,
+  ) {
+  }
 
   removeItem() {
-    console.log('removed item from shopping cart: ', this.itemIndex);
+    console.log('removed item from shopping cart: ', this.itemId);
+    if (!this.itemId) return;
+
+    this.shopService.removeCardItem(this.itemId);
   }
 }

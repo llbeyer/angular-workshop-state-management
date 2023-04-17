@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Product} from "../../models/product.model";
 
 @Component({
@@ -8,6 +8,7 @@ import {Product} from "../../models/product.model";
 })
 export class ShopCartItemComponent {
 
+  @Input()
   item: Product | undefined;
 
 }
