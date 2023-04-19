@@ -8,6 +8,10 @@ import { UserAddressComponent } from './components/user-address/user-address.com
 import { UserCompanyComponent } from './components/user-company/user-company.component';
 import { UserContactComponent } from './components/user-contact/user-contact.component';
 import { UserCommentsComponent } from './components/user-comments/user-comments.component';
+import {StoreModule} from "@ngrx/store";
+import {USER_FEATURE_KEY, userReducer} from "./+state/user.reducer";
+import {EffectsModule} from "@ngrx/effects";
+import {UserEffects} from "./+state/user.effects";
 
 
 @NgModule({
@@ -21,7 +25,9 @@ import { UserCommentsComponent } from './components/user-comments/user-comments.
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    StoreModule.forFeature(USER_FEATURE_KEY, userReducer),
+    EffectsModule.forFeature(UserEffects),
   ]
 })
 export class UserModule { }

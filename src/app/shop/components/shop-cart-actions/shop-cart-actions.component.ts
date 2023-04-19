@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Store} from "@ngrx/store";
+import {AppState} from "../../../+state/app.reducer";
+import {removeCartItem} from "../../+state/shop.actions";
 
 @Component({
   selector: 'app-shop-cart-actions',
@@ -7,9 +10,18 @@ import { Component } from '@angular/core';
 })
 export class ShopCartActionsComponent {
 
-  itemIndex: number | undefined;
+  @Input()
+  itemId: number | undefined;
+
+  constructor(
+    private readonly store: Store<AppState>,
+  ) {
+  }
 
   removeItem() {
-    console.log('removed item from shopping cart: ', this.itemIndex);
+    console.log('removed item from shopping cart: ', this.itemId);
+    if (!this.itemId) return;
+
+    this.store.dispatch(removeCartItem({ id: this.itemId }))
   }
 }

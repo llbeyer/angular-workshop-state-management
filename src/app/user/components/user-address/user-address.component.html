@@ -1,6 +1,6 @@
 <h3>UserAddressComponent</h3>
 
-<dl *ngIf="address">
+<dl *ngIf="(address$ | async) as address">
   <dt><b>Straße, Hausnummer</b></dt>
   <dd>{{ address.street }}, {{ address.suite }}</dd>
   <br>
